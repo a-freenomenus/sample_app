@@ -1,2 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>
+  Sign up
+</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'error_messages' %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :autocomplete => 'off'%>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email, :autocomplete => 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password, :autocomplete => 'off' %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation, :autocomplete => 'off' %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Sign up' %>
+  </div>
+<% end %>
