@@ -306,14 +306,18 @@ describe UsersController do
       end
 
       it "should destroy the user" do
-        lambda do
-          delete :destroy, :id => @user
-        end.should change(User, :count).by(-1)
+        unless @user.admin?
+          lambda do
+            delete :destroy, :id => @user
+          end.should change(User, :count).by(-1)
+        end
       end
 
       it "should redirect to the users page" do
-        delete :destroy, :id => @user
-        response.should redirect_to(users_path)
+        unless @user.admin?
+          delete :destroy, :id => @user
+          response.should redirect_to(users_path)
+        end
       end
     end
   end

@@ -3,24 +3,8 @@
 </h1>
 
 <%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, :autocomplete => 'off'%>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email, :autocomplete => 'off' %>
-  </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password, :autocomplete => 'off' %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, :autocomplete => 'off' %>
-  </div>
+  <%= render 'form', :f => f %>
   <div class="actions">
-    <%= f.submit 'Sign up' %>
+    <%= f.submit "Sign up" %>
   </div>
 <% end %>
